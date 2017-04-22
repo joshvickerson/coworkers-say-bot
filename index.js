@@ -2,12 +2,12 @@
     IMPORTS
 */
 var Twit = require('twit')
-var config = require('../config')
+var tokens = require('../config')
 
 /*
     Create the Twit object
 */
-var twitter = new Twit(config)
+var twitter = new Twit(tokens)
 
 // listen for the tweets
 var stream = twitter.stream('statuses/filter', { track: '#ThingsMyCoworkersSay', language: 'en' })
