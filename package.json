@@ -1,0 +1,31 @@
+{
+  "name": "coworkers-say-bot",
+  "version": "0.0.1",
+  "description": "Simple Twitter bot to retweet #ThingsMyCoworkersSay",
+  "main": "index.js",
+  "dependencies": {
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.5"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint index.js; exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshvickerson/coworkers-say-bot.git"
+  },
+  "author": "Josh Vickerson <josh@joshvickerson.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshvickerson/coworkers-say-bot/issues"
+  },
+  "homepage": "https://github.com/joshvickerson/coworkers-say-bot#readme"
+}
