@@ -32,7 +32,7 @@ stream.on('tweet', function (tweet) {
 // every 10 minutes, check if there's a tweet to retweet
 setInterval(function() {
   if(tweets.length > 0) {
-    var tweet_id = tweets.shift(); // grab the first tweet id
+    var tweet_id = tweets.shift() // grab the first tweet id
     twitter.post('statuses/retweet/:id', { id: tweet_id }, function (err, data, response) {
       // do nothing, I guess
     })
