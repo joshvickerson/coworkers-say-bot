@@ -10,14 +10,14 @@ var tokens = require('./config')
 var twitter = new Twit(tokens)
 
 // array to hold tweet ids to retweet
-var tweets = [];
+var tweets = []
 
 // listen for the tweets
 var stream = twitter.stream('statuses/filter', { track: '#ThingsMyCoworkersSay', language: 'en' })
 
 stream.on('tweet', function (tweet) {
   // add tweet to retweet queue
-  tweets.push(tweet.id_str);
+  tweets.push(tweet.id_str)
 })
 
 // some placeholders for possible future fancy features
@@ -37,4 +37,4 @@ setInterval(function() {
       // do nothing, I guess
     })
   }
-}, 600000);
+}, 600000)
