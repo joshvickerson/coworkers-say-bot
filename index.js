@@ -12,12 +12,18 @@ var twitter = new Twit(tokens)
 // array to hold tweet ids to retweet
 var tweets = []
 
+// a bit of filtering
+var disallowedUsers = [
+  'thngscowkrsay' // poser
+]
+
 // listen for the tweets
 var stream = twitter.stream('statuses/filter', { track: '#ThingsMyCoworkersSay', language: 'en' })
 
 stream.on('tweet', function (tweet) {
-  // add tweet to retweet queue
-  tweets.push(tweet.id_str)
+  if (!disallowedUsers.includes(tweet.user.screen_name)) {
+    tweets.push(tweet.id_str)
+  }
 })
 
 // some placeholders for possible future fancy features
@@ -31,7 +37,7 @@ stream.on('tweet', function (tweet) {
 
 // every 10 minutes, check if there's a tweet to retweet
 setInterval(function() {
-  if(tweets.length > 0) {
+  if (tweets.length > 0) {
     var tweet_id = tweets.shift() // grab the first tweet id
     twitter.post('statuses/retweet/:id', { id: tweet_id }, function (err, data, response) {
       // do nothing, I guess
